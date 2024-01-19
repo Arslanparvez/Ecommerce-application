@@ -1,0 +1,50 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}"/>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md=12">
+              <a href="/home" style="text-decoration: none;">Home</a>
+            </div>
+          </div>
+        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 shadow mt-4 p-4 mx-auto" >
+                    <h2>Login</h2>
+                    {% if errmsg  %}
+                      <div class="alert alert-danger">
+                        {{errmsg}}
+                      </div>
+                    {% endif %}
+                    <form method="POST" action="">
+                      {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="input1" class="form-label">Username:</label>
+                            <input type="email" class="form-control" id="input1" name="uname" placeholder="Enter Username">
+                          </div>
+                          <br>
+                          <div class="mb-3">
+                            <label for="input2" class="form-label">Password:</label>
+                            <input type="password" class="form-control" id="input2" name="upass" placeholder="Enter Password">
+                          </div>
+                          
+                          <input type="submit" class="btn btn-danger" value="Login"/>Not a User?
+                          <a href="/register" style="text-decoration: none;">Register</a>
+                         
+                    </form>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+    <script src="{% static 'asset/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
